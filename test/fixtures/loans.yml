@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  disbursed_at: 2014-11-01 17:32:49
+  amount: 9.99
+  interest: 1.5
+  proposal: MyText
+  borrower_id: 
+
+two:
+  disbursed_at: 2014-11-01 17:32:49
+  amount: 9.99
+  interest: 1.5
+  proposal: MyText
+  borrower_id: 
