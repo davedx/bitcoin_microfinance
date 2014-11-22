@@ -1,5 +1,6 @@
 class LoansController < ApplicationController
 	def index
+		@loans = Loan.where(:user_id => current_user.id)
 	end
 
 	def new
@@ -11,7 +12,8 @@ class LoansController < ApplicationController
 	end
 
 	def create
-		@loan = Loan.new(params.require(:loan).permit(:proposal, :amount))
+		@loan = Loan.new(params.require(:loan).permit(:proposal, :amount, :title, :repayment))
+		@loan.user_id = current_user.id
     if @loan.save
       redirect_to @loan
     else

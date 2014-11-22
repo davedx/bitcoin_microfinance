@@ -14,8 +14,18 @@
 			</div>
 
 			<div class="pure-control-group">
+				<%= f.label :title %>
+				<%= f.text_field :title %>
+			</div>
+
+			<div class="pure-control-group">
 				<%= f.label :proposal %>
 				<%= f.text_area :proposal, size: "32x8" %>
+			</div>
+
+			<div class="pure-control-group">
+				<%= f.label :repayment %>
+				<%= f.text_area :repayment, size: "32x5" %>
 			</div>
 
 			<div class="pure-controls">
