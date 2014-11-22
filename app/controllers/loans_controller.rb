@@ -1,5 +1,9 @@
 class LoansController < ApplicationController
 	def index
+		@loans = Loan.all
+	end
+
+	def my_loans
 		@loans = Loan.where(:user_id => current_user.id)
 	end
 
@@ -9,6 +13,7 @@ class LoansController < ApplicationController
 
 	def show
 		@loan = Loan.find(params[:id])
+		@loan_owner = User.find(@loan.user_id)
 	end
 
 	def create
