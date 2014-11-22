@@ -3,24 +3,4 @@
 	<h2>Edit your BTC loan details</h2>
 </div>
 
-<div class="content">
-	<%= form_for(@loan,
-	html: { class: "pure-form pure-form-aligned" }) do |f| %>
-		<fieldset>
-
-			<div class="pure-control-group">
-				<%= f.label :amount %>
-				<%= f.number_field :amount, :readonly => true %> BTC
-			</div>
-
-			<div class="pure-control-group">
-				<%= f.label :proposal %>
-				<%= f.text_area :proposal, size: "32x8" %>
-			</div>
-
-			<div class="pure-controls">
-				<%= f.submit "Update loan", :class => "pure-button pure-button-primary" %>
-			</div>
-		</fieldset>
-	<% end %>
-</div>
+<%= render partial: "form", locals: {edit: true} %>

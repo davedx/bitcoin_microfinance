@@ -23,7 +23,7 @@ class LoansController < ApplicationController
 
   def update
   	@loan = Loan.find(params[:id])
-  	if @loan.update!(params.require(:loan).permit(:proposal))
+  	if @loan.update!(params.require(:loan).permit(:proposal, :title, :repayment))
   		redirect_to @loan
   	else
   		render "edit"
