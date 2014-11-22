@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
   resources :loans do
   	resources :lender_loans
+#    post   "signup"  => "users/registrations#create", as: :user_registration
   end
+  get   "my_loans"  => "loans#my_loans", as: :my_loans
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
