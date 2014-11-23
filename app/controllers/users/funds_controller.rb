@@ -1,4 +1,4 @@
-require 'blockchain'
+#require 'blockchain'
 
 class Users::FundsController < ApplicationController
 	def index
