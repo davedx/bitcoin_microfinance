@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: bitcoin_microfinance_production
-  username: bitcoin_microfinance
+  database: btcmf0
+  username: btcmf0
   password: <%= ENV['BITCOIN_MICROFINANCE_DATABASE_PASSWORD'] %>
