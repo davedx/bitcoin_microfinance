@@ -4,5 +4,7 @@
 </div>
 
 <div class="content">
-	<p>You have 0 BTC available to help people fund their loans.</p>
+	<p>You have <strong><%= current_user.balance %> BTC</strong> available to help people fund their loans.</p>
+
+	<p>You can <%= link_to "add funds", edit_funds_path %> to your balance.</p>
 </div>

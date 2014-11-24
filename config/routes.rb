@@ -10,60 +10,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'landings#index'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
   resources :loans do
   	resources :lender_loans
-#    post   "signup"  => "users/registrations#create", as: :user_registration
   end
   get   "my_loans"  => "loans#my_loans", as: :my_loans
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  get   "received"  => "callbacks#received", as: :received
   
   #->Prelang (user_login:devise/stylized_paths)
   devise_scope :user do
@@ -75,6 +26,9 @@ Rails.application.routes.draw do
     post   "signup"  => "users/registrations#create", as: :user_registration
     put    "signup"  => "users/registrations#update", as: :update_user_registration
     get    "account" => "users/registrations#edit",   as: :edit_user_registration
+
+    get   "funds"   => "users/funds#index", as: :funds
+    get   "funds/deposit"   => "users/funds#edit", as: :edit_funds
   end
 
 end
