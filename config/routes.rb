@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   	resources :lender_loans
   end
   get   "my_loans"  => "loans#my_loans", as: :my_loans
+  get   "received"  => "callbacks#received", as: :received
   
   #->Prelang (user_login:devise/stylized_paths)
   devise_scope :user do
