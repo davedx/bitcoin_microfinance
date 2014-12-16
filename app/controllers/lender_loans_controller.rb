@@ -16,6 +16,7 @@ class LenderLoansController < ApplicationController
 	def create
 		@lender_loan = LenderLoan.new(params.require(:lender_loan).permit(:amount, :interest))
 		@loan = Loan.find(params[:loan_id])
+		@owner = User.find(@loan.user_id)
 		@lender_loan.user_id = current_user.id
 		@lender_loan.loan = @loan
     if @lender_loan.save
