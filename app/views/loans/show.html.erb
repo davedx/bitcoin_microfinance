@@ -8,15 +8,16 @@
 	<img class="pure-img" src="<%= @loan_owner.facebook_url %>">
 
 	<div class="show-loan">
-		<% if @loan_owner == current_user %>
-			<div class="pure-g">
-				<div class="pure-u-1-3">
-				</div>
-				<div class="pure-u-2-3">
-					<%= link_to "Edit my loan", edit_loan_path(@loan), :class => "pure-button pure-button-primary" %>
-				</div>
+		<div class="pure-g">
+			<div class="pure-u-1-3">
+				<%= link_to "Fund this loan!", new_loan_lender_loan_path(@loan), :class => "pure-button pure-button-primary" %>
 			</div>
+			<div class="pure-u-2-3">
+		<% if @loan_owner == current_user %>
+				<%= link_to "Edit my loan", edit_loan_path(@loan), :class => "pure-button pure-button-primary" %>
 		<% end %>
+			</div>
+		</div>
 		<div class="pure-g">
 			<div class="pure-u-1-3">Name:</div>
 			<div class="pure-u-2-3"><%= @loan_owner.name %></div>
@@ -37,5 +38,16 @@
 			<div class="pure-u-1-3">Repayment:</div>
 			<div class="pure-u-2-3"><%= @loan.repayment %></div>
 		</div>
+	</div>
+
+	<div class="show-lends">
+		<h2>Funded by: </h2>
+	<% @loan.lender_loans.each do |lender_loan| %>
+		<div class="pure-g">
+			<div class="pure-u-1-3">
+			
+			</div>
+		</div>
+	<% end %>
 	</div>
 </div>

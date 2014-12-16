@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141124114704) do
+ActiveRecord::Schema.define(version: 20141207124126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,10 +65,12 @@ ActiveRecord::Schema.define(version: 20141124114704) do
     t.integer  "lender_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "lender_loans", ["lender_id"], name: "index_lender_loans_on_lender_id", using: :btree
   add_index "lender_loans", ["loan_id"], name: "index_lender_loans_on_loan_id", using: :btree
+  add_index "lender_loans", ["user_id"], name: "index_lender_loans_on_user_id", using: :btree
 
   create_table "lenders", force: true do |t|
     t.string   "name"
@@ -88,6 +90,9 @@ ActiveRecord::Schema.define(version: 20141124114704) do
     t.integer  "user_id"
     t.string   "title"
     t.text     "repayment"
+    t.string   "status",               default: "created"
+    t.decimal  "term_monthly_payment"
+    t.decimal  "term_months"
   end
 
   add_index "loans", ["borrower_id"], name: "index_loans_on_borrower_id", using: :btree
