@@ -8,8 +8,12 @@
 	<p><%= @loan.proposal %></p>
 	<%= form_for [@loan, @lender_loan],
 	html: { class: "pure-form pure-form-aligned" } do |f| %>
-		<fieldset>
 
+		<% @lender_loan.errors.full_messages.each do |msg| %>
+      <p class="error"><%= msg %></p>
+    <% end %>
+
+		<fieldset>
 			<div class="pure-control-group">
 				<%= f.label :amount, "Fund this loan by" %>
 				<%= f.text_field :amount %> BTC
