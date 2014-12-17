@@ -5,6 +5,14 @@ class Loan < ActiveRecord::Base
 	belongs_to :user
 	has_many :lender_loans
 
+	def progress
+		funded_amount = 0.0
+		self.lender_loans.each do |lender_loan|
+			funded_amount += lender_loan.amount
+		end
+		funded_amount / amount * 100
+	end
+
 	def update_lender_loans
 		funded_amount = 0.0
 		interest = 0.0
