@@ -20,12 +20,16 @@
 		</div>
 	</div>
 	<div class="pure-g">
+		<% if @loan.status == "created" %>
 		<div class="pure-u-1-3"><h2 class="progress-header"><%= @loan.progress.to_i %>% funded</h2></div>
 		<div class="pure-u-2-3">
 			<div class="progress-container">
 				<div class="progress" style="width: <%= @loan.progress %>%"></div>
 			</div>
 		</div>
+		<% elsif @loan.status == "funded" %>
+		<div class="pure-u-2-3"><h2 class="progress-header">This loan is fully funded!</h2></div>
+		<% end %>
 	</div>
 	<div class="show-loan">
 		<div class="pure-g">
