@@ -29,6 +29,12 @@
 		</div>
 		<% elsif @loan.status == "funded" %>
 		<div class="pure-u-2-3"><h2 class="progress-header">This loan is fully funded!</h2></div>
+		<% elsif @loan.status == "repaying" %>
+		<div class="pure-u-2-3"><h2 class="progress-header">This loan is being repaid</h2></div>
+		<% elsif @loan.status == "repaid" %>
+		<div class="pure-u-2-3"><h2 class="progress-header">This loan has been repaid</h2></div>
+		<% elsif @loan.status == "closed" %>
+		<div class="pure-u-2-3"><h2 class="progress-header">This loan is closed</h2></div>
 		<% end %>
 	</div>
 	<div class="show-loan">
