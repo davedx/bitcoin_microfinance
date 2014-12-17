@@ -13,12 +13,11 @@ class LoansController < ApplicationController
 
 	def show
 		@loan = Loan.find(params[:id])
-		@loan_owner = User.find(@loan.user_id)
 	end
 
 	def create
 		@loan = Loan.new(params.require(:loan).permit(:proposal, :amount, :title, :repayment))
-		@loan.user_id = current_user.id
+		@loan.user = current_user
     if @loan.save
       redirect_to @loan
     else

@@ -4,7 +4,7 @@ class LenderLoan < ActiveRecord::Base
 	validate :user_has_sufficient_funds, unless: Proc.new { |a| a.amount.blank? }
 
 	belongs_to :loan
-	belongs_to :lender
+	belongs_to :user
 
 	after_save :lender_loan_saved
 

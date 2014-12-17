@@ -2,7 +2,7 @@ require 'finance'
 include Finance
 
 class Loan < ActiveRecord::Base
-	belongs_to :borrower
+	belongs_to :user
 	has_many :lender_loans
 
 	def update_lender_loans
